@@ -1,3 +1,9 @@
-[{
-    
-}]
+[
+    {
+        "id": 1,
+        "nome": "solo leveling\n",
+        "tipo": "sistema\n",
+        "ultimo capitulo": 45,
+        "status": "lendo\n"
+    }
+]
