@@ -1,9 +1,16 @@
 [
     {
         "id": 1,
-        "nome": "solo leveling\n",
-        "tipo": "sistema\n",
-        "ultimo capitulo": 45,
-        "status": "lendo\n"
+        "titulo": "solo leveling",
+        "tipo": "webotoon",
+        "ultimo capitulo lido": 56,
+        "status": "lendo"
+    },
+    {
+        "id": 2,
+        "titulo": "teste",
+        "tipo": "teste1",
+        "ultimo capitulo lido": 8787,
+        "status": "teste3"
     }
 ]
