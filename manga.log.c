@@ -3,18 +3,26 @@
     
 int main (){
     setlocale(LC_ALL, "portuguese");
-    json_error_t erro;
-    json_t *lista_manga = json_load_file ("banco.json", 0, &erro);
+    json_t *lista_manga = json_load_file ("banco.json", 0, NULL);
     
     if (!lista_manga){
-        printf ("erro ao carregar o arquivo!\nmotivo: %s\nlinha: %d | coluna: %d\n", erro.text, erro.line, erro.column);
+        system ("clear");
+        printf  ("- BANCO DE DADOS NÃO ENCONTRADO. \n- criando um novo banco de dados para o sistema!\n");
+        lista_manga =json_array();
+        json_dump_file(lista_manga, "banco.json",   JSON_INDENT (4));
+        printf ("- NOVO BANCO DE DADOS CRIADO COM SUCESSO!\n\n pressione enter para continuar");
+
+        getchar();
+
     }
-    dados manga;
+    dados manga; 
     int key = 0, control=0;
+
     char salvamento;
 
     while (key != 5){
          system ("clear");
+
          if (control == 1){
             printf ("OS DADOS INFORMADOS FORAM SALVOS!");
             control -=1;
@@ -36,19 +44,20 @@ int main (){
                 fgets (manga.tipo, n, stdin);
                       manga.tipo[strcspn(manga.tipo, "\n")] = '\0';
              printf ("===========================================\n");
-             printf ("\ninforme o ultimo capitulo lido: ");
+            printf ("qualquer letra informada resultara nulo no banco! ");
+            printf ("\ninforme o ultimo capitulo lido: ");
                  scanf (" %d", &manga.capitulo);
              printf ("\n=========================================\n");
                     __fpurge(stdin);
-             printf ("\ninforme o status da obra: ");
+            printf ("\ninforme o status da obra(lendo)(hiato)(finalizada): ");
                 fgets (manga.status, n, stdin);
                       manga.status[strcspn(manga.status, "\n")] = '\0';
              printf ("\n===========================================\n");
-             printf ("salvar? s/n\t R:");
+            printf ("salvar? S/n\t R:");
                 scanf (" %c", &salvamento);
                    __fpurge(stdin);
 
-            if (salvamento == 's'){
+            if (salvamento == 's' || salvamento == 'S'){
                 control= 1;   
                 json_t *dados_novo_manga = json_pack ("{s:i, s:s, s:s, s:i, s:s}",
                             "id", manga.id, 
@@ -75,14 +84,38 @@ int main (){
                     break;
                 }
             else{
-                lista_obras (lista_manga, &manga); //libs.h linha 40
+                __fpurge(stdin);
+                key = 0;
+                while (key!= 3){
+                    system ("clear");
+                    printf ("opcão 1 - listar todas as obras\nopcão 2 - pesquisar por titulo\nopção 3 - para voltar ao menu principal\nR:");
+                    scanf (" %d", &key);
+                    __fpurge (stdin);
+                    switch (key){
+                        case 1: 
+                            lista_obras (lista_manga, &manga); //libs.h linha 40
+                            break;
+                        case 2:
+                            lista_pesquisa (lista_manga, &manga);
+                            break;
+                        case  3:
+                        break;
+                        default:
+                        system ("clear");
+                        printf ("OPÇÃO SELECIONADA INVALIDA!\ntente novamente");
+                        break;
+                    }
+                }
             }
-
-          
-
             break;
           case 3:
+            __fpurge (stdin); 
             break;
+        
+          default: 
+            printf ("OPÇÃO SELECIONADA INVALIDA! tente novamente");
+
+          break;
         }
     }
     return 0;
