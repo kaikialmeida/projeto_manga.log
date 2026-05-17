@@ -1,16 +1,16 @@
 [
     {
         "id": 1,
-        "titulo": "solo leveling",
-        "tipo": "webotoon",
-        "ultimo capitulo lido": 56,
-        "status": "lendo"
+        "titulo": "solo",
+        "tipo": "shounem",
+        "ultimo capitulo lido": 88,
+        "status": "finalizada"
     },
     {
         "id": 2,
-        "titulo": "teste",
-        "tipo": "teste1",
-        "ultimo capitulo lido": 8787,
-        "status": "teste3"
+        "titulo": "solo leveling update",
+        "tipo": "shounem e necromance",
+        "ultimo capitulo lido": 99,
+        "status": "lendo"
     }
 ]
