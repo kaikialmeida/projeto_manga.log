@@ -1,6 +1,6 @@
 #include "includes/libs.h"
 #include "includes/includes.h"
-    
+
 int main (){
     setlocale(LC_ALL, "portuguese");
     json_t *lista_manga = json_load_file ("banco.json", 0, NULL);
@@ -16,7 +16,7 @@ int main (){
 
     }
     dados manga; 
-    int key = 0, control=0;
+    int key = 0, control = 0;
 
     char salvamento;
 
@@ -44,7 +44,7 @@ int main (){
                 fgets (manga.tipo, n, stdin);
                       manga.tipo[strcspn(manga.tipo, "\n")] = '\0';
              printf ("===========================================\n");
-            printf ("qualquer letra informada resultara nulo no banco! ");
+            printf ("ATENÇÃO! qualquer letra ou caractere especial informado resultara nulo! ");
             printf ("\ninforme o ultimo capitulo lido: ");
                  scanf (" %d", &manga.capitulo);
              printf ("\n=========================================\n");
@@ -88,8 +88,11 @@ int main (){
                 key = 0;
                 while (key!= 3){
                     system ("clear");
-                    printf ("opcão 1 - listar todas as obras\nopcão 2 - pesquisar por titulo\nopção 3 - para voltar ao menu principal\nR:");
-                    scanf (" %d", &key);
+                    printf ("\nopcão [1] - listar todas as obras\nopcão [2] - pesquisar por titulo\nopção [3] - para voltar ao menu principal\nR:");
+                    if (scanf (" %d", &key) != 1){
+                        __fpurge(stdin);
+                        key = -1;
+                    }
                     __fpurge (stdin);
                     switch (key){
                         case 1: 
@@ -101,19 +104,38 @@ int main (){
                         case  3:
                         break;
                         default:
+                        __fpurge(stdin);
                         system ("clear");
-                        printf ("OPÇÃO SELECIONADA INVALIDA!\ntente novamente");
+                        printf ("OPÇÃO SELECIONADA INVALIDA!\n");
+                        printf ("pressione enter para tentar novamente\n");
+                        getchar();
                         break;
                     }
                 }
             }
             break;
           case 3:
+            atualizacao_lista (lista_manga, &manga);
             __fpurge (stdin); 
             break;
+
+            case 4:
+                exclusao_obra(lista_manga, &manga);
+                __fpurge(stdin);
+            break;
+
+            case 5:
+            system ("clear");
+            printf ("OBRIGADO POR ESCOLHER A MANGA.LOG !! \nvolte sempre! :)\n");
+            sleep(5);
+            system ("clear");
+            break;
+
         
           default: 
-            printf ("OPÇÃO SELECIONADA INVALIDA! tente novamente");
+            printf ("OPÇÃO SELECIONADA INVALIDA!\npressione enter para tentar novamente\n");
+            getchar();
+            __fpurge (stdin);
 
           break;
         }

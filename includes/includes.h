@@ -6,4 +6,5 @@
 #include <stdio_ext.h>
 #include <jansson.h>
 #include <stdlib.h>
+#include <unistd.h>
 #endif
