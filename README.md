@@ -59,10 +59,11 @@ Abra o terminal na pasta raiz do projeto e execute os seguintes comandos:
 
  para Compilar o código:
  
-   - gcc main.c -o mangalog -ljansson
-   - (ou coloque manualmente la no task.json na parte de argumentos).
+    gcc main.c -o mangalog -ljansson
+    
+    (ou coloque manualmente -ljansson la no task.json na parte de argumentos).
    
-   (O parâmetro -ljansson é obrigatório para linkar a biblioteca JSON). 
+    (O parâmetro -ljansson é obrigatório para linkar a biblioteca JSON). 
    
  Executar a aplicação: 
  
