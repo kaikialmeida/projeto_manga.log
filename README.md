@@ -24,11 +24,17 @@ O projeto está dividido de forma modular para facilitar a manutenção:
 - exemplo da estrutura struct:
   
   {
+  
       "id": 1,
+      
       "titulo": "One Piece",
+      
       "tipo": "Manga",
+      
       "ultimo capitulo lido": 1100,
+      
       "status": "Lendo"
+      
   }
 
 ⚒ PRÉ-REQUISITOS E COMO RODAR:
@@ -36,9 +42,10 @@ O projeto está dividido de forma modular para facilitar a manutenção:
   Pré-requisitos:
   
     Para compilar e rodar este projeto, você precisará de:
-         - Um compilador C (como o gcc).
-         - Ambiente Linux/Unix (devido ao uso da biblioteca <stdio_ext.h> e do comando __fpurge).
-         - Biblioteca Jansson instalada no sistema.
+    
+  - Um compilador C (como o gcc).
+  - Ambiente Linux/Unix (devido ao uso da biblioteca <stdio_ext.h> e do comando __fpurge).
+  - Biblioteca Jansson instalada no sistema.
          
 COMO INSTALAR A BIBLIOTECA JANSSON (Ubuntu/Debian):
 
