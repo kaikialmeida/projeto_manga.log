@@ -28,13 +28,13 @@ int main (){
             control -=1;
         }
 
-    menu (&key); //libs.h linha 31
+    menu (&key);
 
   
        switch (key){
           case 1:
             system ("clear");
-            manga.id = verificacao_id (lista_manga); //libs.h linha 14
+            manga.id = verificacao_id (lista_manga);
             printf ("\n====== ID DA OBRA: %d =======\n", manga.id);
             printf ("\ninforme o titulo da obra: ");
                 fgets (manga.titulo, n, stdin);
@@ -96,7 +96,7 @@ int main (){
                     __fpurge (stdin);
                     switch (key){
                         case 1: 
-                            lista_obras (lista_manga, &manga); //libs.h linha 40
+                            lista_obras (lista_manga, &manga); 
                             break;
                         case 2:
                             lista_pesquisa (lista_manga, &manga);

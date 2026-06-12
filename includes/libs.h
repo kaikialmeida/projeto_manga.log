@@ -27,7 +27,7 @@ int verificacao_id(json_t *lista_manga){
             }
       }
       return ++maior_id;
-}//manga.log linha 28
+}
 
 void menu (int *key){
      printf ("\n========================================\n");
@@ -41,7 +41,7 @@ void menu (int *key){
      else {
             getchar();
         }
-} // manga.log linha 22
+} 
 void lista_obras(json_t *lista_manga, dados *manga){
     system ("clear");
     size_t posicao_lista;
@@ -69,7 +69,7 @@ void lista_obras(json_t *lista_manga, dados *manga){
     }
      printf ("pressione enter para voltar ao menu principal\n");   
      getchar ();
-} //manga.log linha 77
+}
 void lista_pesquisa (json_t *lista_manga, dados *manga){
     system("clear");
     char titulo_pesquisa [n];
